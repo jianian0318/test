@@ -8,8 +8,7 @@ jobs:
       - name: Install gdown
         run: pipx install gdown
       - name: Download from Google Drive
-        run: |
-          gdown "https://drive.google.com/uc?id=1Ny8wtQJL1TFa3qYsxUnl4BPynpJEMaMB&confirm=t" -O release.tar.gz
+        run: gdown 1Ny8wtQJL1TFa3qYsxUnl4BPynpJEMaMB -O release.tar.gz
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
