@@ -1,0 +1,18 @@
+name: fetch-model
+on: workflow_dispatch
+jobs:
+  dl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install gdown
+        run: pipx install gdown
+      - name: Download from Google Drive
+        run: |
+          gdown "https://drive.google.com/uc?id=1Ny8wtQJL1TFa3qYsxUnl4BPynpJEMaMB&confirm=t" -O release.tar.gz
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-release
+          path: release.tar.gz
+          if-no-files-found: error
